@@ -12,7 +12,7 @@ import { routeTree } from "./routeTree.gen"
 import { ApiError, OpenAPI } from "./client"
 import { CustomProvider } from "./components/ui/provider"
 
-OpenAPI.BASE = import.meta.env.VITE_API_URL
+OpenAPI.BASE = process.env.NEXT_PUBLIC_API_BASE_URL as string
 OpenAPI.TOKEN = async () => {
   return localStorage.getItem("access_token") || ""
 }
