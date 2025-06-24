@@ -1,25 +1,113 @@
 {
-  "name": "Full Stack FastAPI Dev Container",
-  "image": "mcr.microsoft.com/devcontainers/python:3.11",
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "20"
-    }
+  "name": "Full Stack FastAPI Template with NextJS Dev Container",
+  "shutdownAction": "stopContainer",
+  "workspaceFolder": "/workspaces/full-stack-fastapi-template-with-next-js/",
+  "build": {
+      "dockerfile": "Dockerfile"
   },
-  "postCreateCommand": "pip install -r backend/requirements.txt && npm install --prefix frontend",
+  "features": {
+      "ghcr.io/devcontainers/features/docker-in-docker:latest": {},
+      "ghcr.io/devcontainers/features/github-cli:latest": {},
+      "ghcr.io/devcontainers/features/powershell:1": {},
+      "ghcr.io/devcontainers-contrib/features/pipx-package:1": {},
+      "ghcr.io/devcontainers/features/dotnet:latest": {},
+      "ghcr.io/devcontainers/features/node:1": {
+        "version": "20"
+      }
+  },
   "customizations": {
-    "vscode": {
+      "vscode": {
       "settings": {
-        "python.pythonPath": "/usr/local/bin/python",
-        "editor.formatOnSave": true
+          "terminal.integrated.defaultProfile.linux": "bash"
       },
       "extensions": [
-        "ms-python.python",
-        "esbenp.prettier-vscode",
-        "ms-azuretools.vscode-docker"
-      ]
+          // JSON Extensions
+          "richie5um2.vscode-sort-json",
+          // Bash Extensions
+          "dominic-valerio.bash-runner",
+          "timonwong.shellcheck",
+          "rogalmic.bash-debug",
+          // Python Extensions
+          "ms-python.python",
+          "ms-python.vscode-pylance",
+          "ms-python.flake8",
+          "ms-toolsai.jupyter",
+          "cameron.vscode-pytest",
+          "pamaron.pytest-runner",
+          "donjayamanne.python-environment-manager",
+          "visualstudioexptteam.vscodeintellicode",
+          // api_extensions()
+          "rangav.vscode-thunder-client",
+          // Database Extensions
+          "ms-mssql.mssql",
+          "ms-ossdata.vscode-postgresql",
+          // General Coding Extensions
+          "heaths.vscode-guid",
+          // Coding Assistance Extensions
+          "github.copilot",
+          "github.copilot-chat",
+          "GitHub.copilot-labs",
+          // Remote Extensions
+          "github.codespaces",
+          "ms-vscode-remote.remote-containers",
+          "ms-vscode.remote-repositories",
+          "ms-vscode.remote-explorer",
+          "ms-vscode-remote.remote-ssh",
+          "github.remotehub",
+          "ms-vsliveshare.vsliveshare",
+          "GitHub.vscode-github-actions",
+          // Productivity Extensions
+          "alefragnani.Bookmarks",
+          "christian-kohler.path-intellisense",
+          "ms-vscode.wordcount",
+          "Gruntfuggly.todo-tree",
+          "dkundel.vscode-new-file",
+          "wayou.vscode-todo-highlight",
+          "wmaurer.change-case",
+          "Tyriar.sort-lines",
+          // GUI Extensions
+          "wesbos.theme-cobalt2",
+          "fabiospampinato.vscode-monokai-night",
+          "oderwat.indent-rainbow",
+          "chouzz.vscode-better-align",
+          // Linting Extensions
+          "dbaeumer.vscode-eslint",
+          "esbenp.prettier-vscode"
+          ]
+      },
+      "codespaces": {
+      "openFiles": ["README.md"],
+      "postStartCommand": "bash .devcontainer/post-start.sh"
+      }
+  },
+  "forwardPorts": [3000, 8000, 5432, 5454],
+  "portsAttributes": {
+    "3000": {
+      "label": "Frontend NextJS",
+      "onAutoForward": "openBrowser"
+    },
+    "8000": {
+      "label": "Backend FastAPI",
+      "onAutoForward": "notify"
+    },
+    "5432": {
+      "label": "Database Postgres",
+      "onAutoForward": "silent"
+    },
+    "5454": {
+      "label": "Anthropic Auth Callback",
+      "onAutoForward": "silent"
     }
   },
-  "forwardPorts": [3000, 8000],
-  "remoteUser": "vscode"
+  "remoteUser": "developer",
+  "hostRequirements": {
+    "memory": "16gb",
+    "cpus": 4
+  },
+  "containerEnv": {
+      "CODESPACE_FRIENDLY_NAME": "MCP Server Management"
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "postStartCommand": "bash .devcontainer/post-start.sh",
+  "postAttachCommand": "bash .devcontainer/post-attach.sh"
 }
