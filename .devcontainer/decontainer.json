@@ -11,8 +11,9 @@
       "ghcr.io/devcontainers/features/node:1": {
         "version": "20"
       },
-      "ghcr.io/devcontainers-contrib/features/uv:1": {},
+      "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {},
       "ghcr.io/devcontainers/features/sshd:1": {},
+      "ghcr.io/devcontainers-extra/features/exa:1": {},
       "ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {},
       "ghcr.io/schlich/devcontainer-features/cypress:1": {},
       "ghcr.io/devcontainers-extra/features/flake8:2": {},
@@ -20,7 +21,13 @@
       "ghcr.io/devcontainers-extra/features/mlocate-apt-get:1": {},
       "ghcr.io/devcontainers-extra/features/mypy:2": {},
       "ghcr.io/devcontainers-extra/features/prettier:1": {},
-      "ghcr.io/devcontainers-extra/features/ruff:1": {}
+      "ghcr.io/devcontainers-extra/features/ruff:1": {},
+      "ghcr.io/devcontainers-extra/features/wget-apt-get:1": {},
+      "ghcr.io/devcontainers-extra/features/tldr:2": {},
+      "ghcr.io/devcontainers-extra/features/supabase-cli:1": {},
+      "ghcr.io/devcontainers-extra/features/shellcheck:1": {},
+      "ghcr.io/devcontainers-extra/features/ripgrep:1": {},
+      "ghcr.io/devcontainers-extra/features/pandoc:1": {}
   },
   "customizations": {
       "vscode": {
@@ -28,58 +35,47 @@
           "terminal.integrated.defaultProfile.linux": "bash"
       },
       "extensions": [
-          // JSON Extensions
-          "richie5um2.vscode-sort-json",
-          // Bash Extensions
-          "dominic-valerio.bash-runner",
-          "timonwong.shellcheck",
-          "rogalmic.bash-debug",
-          // Python Extensions
-          "ms-python.python",
-          "ms-python.vscode-pylance",
-          "ms-python.flake8",
-          "ms-toolsai.jupyter",
+          "alefragnani.Bookmarks",
           "cameron.vscode-pytest",
-          "pamaron.pytest-runner",
+          "charliermarsh.ruff",
+          "chouzz.vscode-better-align",
+          "christian-kohler.path-intellisense",
+          "dbaeumer.vscode-eslint",
+          "dkundel.vscode-new-file",
+          "dominic-valerio.bash-runner",
           "donjayamanne.python-environment-manager",
-          "visualstudioexptteam.vscodeintellicode",
-          // api_extensions()
-          "rangav.vscode-thunder-client",
-          // Database Extensions
+          "esbenp.prettier-vscode",
+          "fabiospampinato.vscode-monokai-night",
+          "github.codespaces",
+          "github.remotehub",
+          "GitHub.vscode-github-actions",
+          "Gruntfuggly.todo-tree",
+          "heaths.vscode-guid",
           "ms-mssql.mssql",
           "ms-ossdata.vscode-postgresql",
-          // General Coding Extensions
-          "heaths.vscode-guid",
-          // Coding Assistance Extensions
-          "github.copilot",
-          "github.copilot-chat",
-          "GitHub.copilot-labs",
-          // Remote Extensions
-          "github.codespaces",
+          "ms-python.flake8",
+          "ms-python.pylint",
+          "ms-python.python",
+          "ms-python.vscode-pylance",
+          "ms-toolsai.jupyter",
           "ms-vscode-remote.remote-containers",
-          "ms-vscode.remote-repositories",
-          "ms-vscode.remote-explorer",
           "ms-vscode-remote.remote-ssh",
-          "github.remotehub",
-          "ms-vsliveshare.vsliveshare",
-          "GitHub.vscode-github-actions",
-          // Productivity Extensions
-          "alefragnani.Bookmarks",
-          "christian-kohler.path-intellisense",
+          "ms-vscode.remote-explorer",
+          "ms-vscode.remote-repositories",
           "ms-vscode.wordcount",
-          "Gruntfuggly.todo-tree",
-          "dkundel.vscode-new-file",
-          "wayou.vscode-todo-highlight",
-          "wmaurer.change-case",
-          "Tyriar.sort-lines",
-          // GUI Extensions
-          "wesbos.theme-cobalt2",
-          "fabiospampinato.vscode-monokai-night",
+          "ms-vsliveshare.vsliveshare",
           "oderwat.indent-rainbow",
-          "chouzz.vscode-better-align",
-          // Linting Extensions
-          "dbaeumer.vscode-eslint",
-          "esbenp.prettier-vscode"
+          "pamaron.pytest-runner",
+          "rangav.vscode-thunder-client",
+          "richie5um2.vscode-sort-json",
+          "rogalmic.bash-debug",
+          "tamasfe.even-better-toml",
+          "timonwong.shellcheck",
+          "Tyriar.sort-lines",
+          "visualstudioexptteam.vscodeintellicode",
+          "wayou.vscode-todo-highlight",
+          "wesbos.theme-cobalt2",
+          "wmaurer.change-case"
           ]
       },
       "codespaces": {
